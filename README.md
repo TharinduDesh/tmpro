@@ -1,6 +1,6 @@
-# Pomodoro Timer (tmpro)
+# TMPro
 
-A simple, minimalist, and always-on-top Pomodoro timer designed for managing work and study time effectively. Built with Electron.
+A simple, minimalist, Pomodoro timer designed for managing work and study time effectively. Built with Electron.
 
 ## Features
 
