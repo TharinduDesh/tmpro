@@ -1,5 +1,9 @@
-// preload.js - A script that runs in a privileged environment before the
-// renderer process (your HTML/JS) is loaded. It's a security best practice.
-// For this simple app, we don't need to expose anything, but the file is required.
+// preload.js
+const { contextBridge, ipcRenderer } = require("electron");
+
+contextBridge.exposeInMainWorld("electronAPI", {
+  minimize: () => ipcRenderer.send("minimize-window"),
+  close: () => ipcRenderer.send("close-window"),
+});
 
 console.log("Preload script loaded.");

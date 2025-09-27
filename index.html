@@ -41,6 +41,30 @@
         -webkit-app-region: drag;
       }
 
+      .title-bar {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        display: flex;
+        gap: 6px;
+        -webkit-app-region: no-drag; /* so buttons are clickable */
+      }
+
+      .title-bar button {
+        width: 28px;
+        height: 28px;
+        border: none;
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .title-bar button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+      }
+
       /* Timer display styles */
       #timer-display {
         font-size: clamp(2.5rem, 12vw, 4rem);
@@ -95,6 +119,12 @@
   </head>
   <body>
     <div class="app-container">
+      <!-- Title bar buttons -->
+      <div class="title-bar">
+        <button id="min-btn">—</button>
+        <button id="close-btn">✕</button>
+      </div>
+
       <div id="status-message">Ready to start?</div>
       <div id="timer-display">25:00</div>
 
@@ -111,5 +141,17 @@
 
     <!-- Load the JavaScript from external file -->
     <script src="timer.js"></script>
+    <script>
+      const minBtn = document.getElementById("min-btn");
+      const closeBtn = document.getElementById("close-btn");
+
+      minBtn.addEventListener("click", () => {
+        window.electronAPI.minimize();
+      });
+
+      closeBtn.addEventListener("click", () => {
+        window.electronAPI.close();
+      });
+    </script>
   </body>
 </html>
