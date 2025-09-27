@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pomodoro Timer</title>
+    <style>
+      /* Import a clean, modern font */
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+      /* Basic styles for the body */
+      body {
+        background-color: transparent;
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 15px;
+        box-sizing: border-box;
+        overflow: hidden;
+        user-select: none;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* The main container for the app's content */
+      .app-container {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(20, 20, 40, 0.85);
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px;
+        box-sizing: border-box;
+        -webkit-app-region: drag;
+      }
+
+      /* Timer display styles */
+      #timer-display {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        font-weight: 700;
+        margin: 0;
+        letter-spacing: 2px;
+      }
+
+      /* Status message styles */
+      #status-message {
+        font-size: clamp(0.8rem, 4vw, 1rem);
+        margin-top: -10px;
+        opacity: 0.8;
+      }
+
+      /* Controls container for buttons */
+      .controls {
+        display: flex;
+        gap: 10px;
+      }
+
+      /* Button styles */
+      button {
+        -webkit-app-region: no-drag;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 8px 16px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+      }
+
+      button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+
+      button:active {
+        transform: translateY(0px);
+      }
+
+      /* Stats container */
+      .stats {
+        text-align: center;
+        font-size: 12px;
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-container">
+      <div id="status-message">Ready to start?</div>
+      <div id="timer-display">25:00</div>
+
+      <div class="controls">
+        <button id="start-pause-btn">Start</button>
+        <button id="reset-btn">Reset</button>
+      </div>
+
+      <div class="stats">
+        <span id="session-count">Pomodoros today: 0</span> |
+        <span id="total-time">Total: 0h 0m</span>
+      </div>
+    </div>
+
+    <!-- Load the JavaScript from external file -->
+    <script src="timer.js"></script>
+  </body>
+</html>
