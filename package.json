@@ -16,9 +16,11 @@
       "output": "dist"
     },
     "files": [
-      "**/*",
-      "!node_modules/**/*",
-      "node_modules/electron/**/*"
+      "main.js",
+      "preload.js",
+      "index.html",
+      "timer.js",
+      "assets/icon.ico"
     ],
     "win": {
       "target": "nsis",
